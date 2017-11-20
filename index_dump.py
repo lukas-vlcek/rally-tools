@@ -11,6 +11,11 @@ def main(argv):
     Utility to dump all documents from one index (and all its types).
     Outputs one document per line, no pretty-print, NL only between documents.
 
+    Supported argv:
+      index: name of index to dump data from
+      host: Elasticsearch host:port ('localhost:9200')
+      path: path to ssl certificates ('/opt/usr/elasticsearch')
+
     :param argv:
     :return:
     """
@@ -20,10 +25,6 @@ def main(argv):
     scroll = "1m"
     size = 1000
     kwargs = {}
-
-    # index - name of index to dump data from
-    # host - Elasticsearch host:port ('localhost:9200')
-    # path = path to ssl certificates ('/opt/usr/elasticsearch')
 
     try:
         opts, args = getopt.getopt(argv, "i:h:p", ["index=", "host=", "path"])
